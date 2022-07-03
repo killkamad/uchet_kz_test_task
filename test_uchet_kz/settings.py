@@ -27,7 +27,6 @@ DEBUG = True
 # Подставьте свои данные
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_HOST_USER = 'email-here@mail.ru'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = 'password-here'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True

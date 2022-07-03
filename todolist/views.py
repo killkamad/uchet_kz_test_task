@@ -35,7 +35,7 @@ class TaskExecuteAPIView(APIView):
 
 
 class TaskListCreateAPIView(ListCreateAPIView):
-    queryset = Task.objects.all().order_by('id')
+    queryset = Task.objects.all().order_by('-id')
     serializer_class = TaskListSerializer
     permission_classes = (IsAuthenticated,)
 
