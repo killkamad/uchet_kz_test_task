@@ -8,7 +8,8 @@ from todolist.models import Task
 def send_email_done_status_changed(old_done_status, new_done_status, task_id):
     task = Task.objects.get(id=task_id)
     header_text = f'Статус задачи был изменен с {old_done_status} на {new_done_status}'
-    msg_text = f'Заголовок задачи: {task.header}\n' \
+    msg_text = f'ID задачи: {task_id}\n' \
+               f'Заголовок задачи: {task.header}\n' \
                f'Описание задачи: {task.description}\n' \
                f'Срок исполнения: {task.deadline}\n' \
                f'Выполнено: {task.done}'

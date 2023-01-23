@@ -1,0 +1,366 @@
+{
+	"info": {
+		"_postman_id": "cb8e2d37-2520-4aea-8aa8-e2d049cbe528",
+		"name": "uchet_kz_test_task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6986484"
+	},
+	"item": [
+		{
+			"name": "TODO logic",
+			"item": [
+				{
+					"name": "LIST TODO tasks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}todo/",
+							"host": [
+								"{{base_url}}todo"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve TODO task",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}todo/15/",
+							"host": [
+								"{{base_url}}todo"
+							],
+							"path": [
+								"15",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create TODO task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"header\": \"newtesttask234333\",\r\n    \"description\": \"some description bla bla bla 123 123\",\r\n\t\"deadline\": \"2020-11-30T11:33:33.442000+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}todo/",
+							"host": [
+								"{{base_url}}todo"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Execute TODO task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}todo/20/execute/",
+							"host": [
+								"{{base_url}}todo"
+							],
+							"path": [
+								"20",
+								"execute",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EDIT TODO task",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"header\": \"Dadadadadad 412312321\",\r\n\t\"description\": \"Some random text dadada\",\r\n\t\"deadline\": \"2022-07-04T11:33:33.442000Z\",\r\n\t\"done\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}todo/20/",
+							"host": [
+								"{{base_url}}todo"
+							],
+							"path": [
+								"20",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE TODO task",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}todo/10/",
+							"host": [
+								"{{base_url}}todo"
+							],
+							"path": [
+								"10",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Password reset",
+			"item": [
+				{
+					"name": "Send email to Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"your-email@mail.ru\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}password-reset-request/",
+							"host": [
+								"{{base_url}}password-reset-request"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset link check Password",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}password-reset-check/Mg/bii3t9-af481640702320f7938b7987fed73f3c",
+							"host": [
+								"{{base_url}}password-reset-check"
+							],
+							"path": [
+								"Mg",
+								"bii3t9-af481640702320f7938b7987fed73f3c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set new password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"password\": \"admin123\",\r\n\t\"token\": \"bii3t9-af481640702320f7938b7987fed73f3c\",\r\n\t\"uidb64\": \"Mg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}password-reset-complete/",
+							"host": [
+								"{{base_url}}password-reset-complete"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"your-email@mail.ru\",\r\n\t\"password\": \"your-password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}token/",
+					"host": [
+						"{{base_url}}token"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"refresh\": \"{{refresh}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}logout/",
+					"host": [
+						"{{base_url}}logout"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api/"
+		},
+		{
+			"key": "refresh",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY3NDU3MzE4MywiaWF0IjoxNjc0NDg2NzgzLCJqdGkiOiJmZGUxNjM2YmRiYzI0M2YwODFlN2MwZjExOWYzZThkNiIsInVzZXJfaWQiOjF9.biTn4H5cxiDbq9MQFuIjilTr13AxYI9nfJ_-g-ptOTA",
+			"type": "string"
+		},
+		{
+			"key": "access",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc0NDkwMzgzLCJpYXQiOjE2NzQ0ODY3ODMsImp0aSI6Ijk5YWMxN2IxZjk1NzQ4MmM4N2M3NWVmZGU4MDUyNzIwIiwidXNlcl9pZCI6MX0.nk5ThcoNT4fnwTSbbImSRWgfEiYHkMqLIDPVJPuTD9M",
+			"type": "string"
+		}
+	]
+}

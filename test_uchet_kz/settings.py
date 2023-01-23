@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-v6l8dyap*^g195eud3$!rb2akjm(q306@hy7==1p)r4cpux^&e
 DEBUG = True
 
 # Подставьте свои данные
-EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'email-here@mail.ru'
 EMAIL_HOST_PASSWORD = 'password-here'
 EMAIL_PORT = 465
@@ -112,6 +112,10 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # For local testing. Change for production
 }
 
 # Password validation
