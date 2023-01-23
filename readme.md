@@ -96,3 +96,9 @@
    7.1 Нужно установить программу Insomnia
 
    7.2 Импортировать из файла Insomnia.json
+
+10. Для удобства все запросы собраны в файле uchet_kz_test_task.postman_collection.json
+
+   7.1 Нужно установить программу Postman
+
+   7.2 Импортировать из файла uchet_kz_test_task.postman_collection.json
