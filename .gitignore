@@ -320,6 +320,7 @@ tags
 .pytest_cache/
 .ipython/
 .env
+.env.dev
 .envs/*
 # django migrations
 **/migrations/**
@@ -327,3 +328,4 @@ tags
 !**/migrations/__init__.py
  *.iml / *
 .idea/
+dump.rdb
