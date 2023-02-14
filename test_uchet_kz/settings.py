@@ -9,29 +9,32 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
 from datetime import timedelta
 from pathlib import Path
-
+from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+dotenv_path = os.path.join(BASE_DIR, '.env')
+load_dotenv(dotenv_path)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-v6l8dyap*^g195eud3$!rb2akjm(q306@hy7==1p)r4cpux^&e'
+SECRET_KEY = str(os.getenv('SECRET_KEY', None))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.getenv("DEBUG", default=0))
 
-# Подставьте свои данные
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'email-here@mail.ru'
-EMAIL_HOST_PASSWORD = 'password-here'
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
+# Подставьте свои данные в .env
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'example@gmail.com')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', 'secret_password')
+EMAIL_PORT = os.getenv('EMAIL_PORT', 465)
+EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", 'localhost 127.0.0.1').split(" ")
 
 # Application definition
 
@@ -93,11 +96,11 @@ WSGI_APPLICATION = 'test_uchet_kz.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test_task_uchet_db',
-        'USER': 'test_user',
-        'PASSWORD': 'testpassword',
-        'HOST': '127.0.0.1',
-        'PORT': 5432
+        'NAME': str(os.getenv('DB_NAME')),
+        'USER': str(os.getenv('DB_USER')),
+        'PASSWORD': str(os.getenv('DB_PASSWORD')),
+        'HOST': str(os.getenv('DB_HOST')),
+        'PORT': int(os.getenv('DB_PORT'))
     }
 }
 
@@ -159,8 +162,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379')
+CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND', 'redis://localhost:6379')
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
