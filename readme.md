@@ -11,7 +11,15 @@
 3. С помощью команды запустить docker-compose
    ```bash
    docker-compose up --build -d
-
+   ```
+4. Для удобства все запросы собраны в коллекцию Postman и Insomnia
+   ```bash
+   # Postman
+   uchet_kz_test_task.postman_collection.json
+   
+   # Insomnia
+   Insomnia.json
+   ```
 ## Инструкция для запуска без использования Docker.
 
 1. Настройка виртуального окружения

@@ -12,7 +12,7 @@ then
 fi
 
 python manage.py migrate
-
+python manage.py collectstatic
 echo "Creating superuser..."
 echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser(username='admin', email='admin@example.com', password='admin', phone=1234)" | python manage.py shell || true
 
