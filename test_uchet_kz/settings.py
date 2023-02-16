@@ -35,7 +35,7 @@ EMAIL_PORT = os.getenv('EMAIL_PORT', 465)
 EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', True)
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", 'localhost 127.0.0.1').split(" ")
-
+CSRF_TRUSTED_ORIGINS = ["http://localhost:1337", "http://127.0.0.1:8000/api/"]
 # Application definition
 
 INSTALLED_APPS = [
@@ -155,7 +155,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
